@@ -32,8 +32,8 @@ func Setup() {
 }
 
 type BaseModel struct {
-	ID           uint64    `gorm:"primary_key" json:"id"`
-	CreadtedTime time.Time `json:"created_time"`
-	UpdatedTime  time.Time `json:"updated_time"`
-	IsDel        bool      `json:"isdel"`
+	ID          uint64    `gorm:"primary_key" json:"id"`
+	CreatedTime time.Time `json:"created_time"`
+	UpdatedTime time.Time `json:"updated_time"`
+	Isdel       bool      `gorn:"column:isdel;comment:'逻辑删除'" json:"isdel"`
 }

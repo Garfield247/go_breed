@@ -11,13 +11,13 @@ const PasswordCryptLevel = 12
 type User struct {
 	BaseModel
 	Phone     string    `gorm:"column:phone;not null;unique_index;comment:'手机号'" json:"phone"`
-	Password  string    `gorm:"column:password;comment:'密码'" json:"-"`
+	Password  string    `gorm:"column:passwd;comment:'密码'" json:"-"`
 	Paypwd    string    `gorm:"column:paypwd;comment:'支付密码'" json:"-"`
 	Lastlogin time.Time `gorm:"column:lastlogin;comment:'最后登录时间'" json:"lastlogin"`
 }
 
 func (u *User) TableName() string {
-	return "user"
+	return "extends_user"
 }
 
 func (u *User) GetUserById(uid uint) *User {

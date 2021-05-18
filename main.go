@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"go_darsing_breed/conf"
 	"go_darsing_breed/models"
+	"go_darsing_breed/routers"
 )
 
 func init() {
@@ -18,4 +19,6 @@ func main() {
 	fmt.Println(conf.ServerCfg)
 	fmt.Println(models.DB)
 	fmt.Println("darsing")
+	r := routers.InitRouter()
+	r.Run()
 }
