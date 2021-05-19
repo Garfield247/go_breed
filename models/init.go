@@ -23,6 +23,7 @@ func Setup() {
 
 	db, err := gorm.Open(conf.DataBase.Type, connUri)
 	if err != nil {
+
 		panic(err)
 	}
 	DB = db

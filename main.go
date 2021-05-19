@@ -5,11 +5,13 @@ import (
 	"go_darsing_breed/conf"
 	"go_darsing_breed/models"
 	"go_darsing_breed/routers"
+	"go_darsing_breed/utils"
 )
 
 func init() {
 	conf.Setup()
 	models.Setup()
+	utils.RedisSetup()
 }
 
 func main() {

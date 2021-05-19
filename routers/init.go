@@ -8,6 +8,7 @@ func InitRouter() *gin.Engine {
 	engine.Use(gin.Logger())
 	engine.Use(gin.Recovery())
 	UserRouter(engine)
+	MsgsRouter(engine)
 
 	return engine
 }

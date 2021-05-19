@@ -17,11 +17,19 @@ type SqlDataBase struct {
 	Prefix   string
 }
 
+type Redis struct {
+	Host     string
+	Port     string
+	Password string
+	DB       int
+}
+
 type Jwt struct {
 	SecretKey string
 }
 
 type Project struct {
+	MsgCodeLength int
 	MediaFilePath string
 }
 
@@ -33,6 +41,7 @@ type Server struct {
 
 var (
 	DataBase     = &SqlDataBase{}
+	RedisCfg     = &Redis{}
 	JwtSecretKey = &Jwt{}
 	ProjectCfg   = &Project{}
 	ServerCfg    = &Server{}
@@ -44,6 +53,9 @@ func Setup() {
 		panic(err)
 	}
 	if err := cfg.Section("mysql").MapTo(DataBase); err != nil {
+		panic(err)
+	}
+	if err := cfg.Section("redis").MapTo(RedisCfg); err != nil {
 		panic(err)
 	}
 	if err := cfg.Section("jwt").MapTo(JwtSecretKey); err != nil {
